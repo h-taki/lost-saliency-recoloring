@@ -1,0 +1,50 @@
+#   - pretrained_path: weights/msinet_salicon17_freeze_m1_pretrained.pth
+#   - default_root_dir: runs/msi_d_hf_method3_salicon17_freeze_m1
+#
+#
+#   - G-3 (LR=1e-5, no freeze, method3)          = 0.7294
+#   - G-4 (LR=1e-6, no freeze, method3)          = 0.7374
+#   - G-5 (LR=1e-6, freeze enc, method3)         = 0.7406
+#
+#   2) python scripts/lightning_ckpt_to_state_dict.py
+#        --in  runs/msi_salicon_pretrain_freeze_m1/.../epoch=XX-step=YY.ckpt
+#        --out weights/msinet_salicon17_freeze_m1_pretrained.pth
+#   3) python scripts/run_kfold.py
+#        --config configs/msi_d_hf_method3_salicon17_freeze_m1.yaml
+#        --num-folds 20
+
+seed_everything: 42
+
+trainer:
+  max_epochs: 10
+  accelerator: gpu
+  devices: 1
+  precision: 32
+  log_every_n_steps: 10
+  default_root_dir: runs/msi_d_hf_method3_salicon17_freeze_m1
+  deterministic: false
+
+model:
+  class_path: sm_cvd.lightning_modules.MSINetLightning
+  init_args:
+    learning_rate: 1.0e-5
+    loss_variant: method3
+    pretrained_vgg16: false
+    pretrained_path: weights/msinet_salicon17_freeze_m1_pretrained.pth
+
+data:
+  class_path: sm_cvd.data.EToCVDDataModule
+  init_args:
+    dataset_root: /PATH/TO/EToCVD/D
+    splits_folder: splits_30_original
+    fold: 1
+    image_size: [240, 320]
+    batch_size: 1
+    num_workers: 2
+    augment:
+      class_path: sm_cvd.data.AugmentConfig
+      init_args:
+        use_hf: true
+        use_rrc: false
+        use_re: false
+        prob_each: 0.5

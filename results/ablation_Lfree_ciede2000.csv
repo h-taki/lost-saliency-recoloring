@@ -1,0 +1,7 @@
+type,metric,Lfixed(ours),Lfree,Lfixed_minus_Lfree,ci_lo,ci_hi,sig
+d,naturalness_cost,0.640,0.815,-0.175,-0.193,-0.158,CI_excl_0_Lfree_costs_more_naturalness
+d,distinguish_gainM,1.589,3.491,-1.902,-1.950,-1.853,CI_excl_0_Lfree_higher_distinguishability
+d,ssim,0.990,0.968,0.022,NA,NA,Lfixed_higher_structure
+p,naturalness_cost,0.609,0.724,-0.115,-0.130,-0.101,CI_excl_0_Lfree_costs_more_naturalness
+p,distinguish_gainM,1.825,3.668,-1.843,-1.895,-1.790,CI_excl_0_Lfree_higher_distinguishability
+p,ssim,0.994,0.978,0.016,NA,NA,Lfixed_higher_structure

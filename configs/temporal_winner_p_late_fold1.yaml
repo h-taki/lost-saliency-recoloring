@@ -1,0 +1,16 @@
+seed_everything: 42
+trainer: {max_epochs: 10, accelerator: gpu, devices: 1, precision: 32, log_every_n_steps: 10, default_root_dir: runs/temporal_winner_p_late, deterministic: false}
+model:
+  class_path: sm_cvd.lightning_modules.DINOv2SaliencyLightning
+  init_args: {learning_rate: 1.0e-4, loss_variant: method3, backbone_name: dinov2_vitb14_reg, lora_rank: 8, lora_alpha: 16.0, pretrained_path: weights/dinov2_lora_salicon_pretrain.pth}
+data:
+  class_path: sm_cvd.data.EToCVDDataModule
+  init_args:
+    dataset_root: ./data/etocvd_p_late
+    splits_folder: splits_fold5
+    fold: 1
+    image_size: [240, 320]
+    batch_size: 1
+    num_workers: 0
+    preprocess_mode: transalnet
+    augment: {class_path: sm_cvd.data.AugmentConfig, init_args: {use_hf: true, use_rrc: false, use_re: false, prob_each: 0.5}}

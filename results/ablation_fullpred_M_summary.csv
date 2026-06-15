@@ -1,0 +1,7 @@
+type,comparison,metric,mean_diff,ci_lo,ci_hi,verdict
+d,guided_minus_guided_fullpred,naturalness_cost,-0.0048,-0.0112,0.0001,ns_equivalent
+d,guided_minus_guided_fullpred,distinguish_gainM,0.2035,0.1886,0.2188,CI_excl_0_GT_Snormal_better
+d,guided_minus_guided_fullpred,distinguish_gainFull,0.0055,-0.0019,0.0127,ns_equivalent
+p,guided_minus_guided_fullpred,naturalness_cost,-0.0025,-0.0046,-0.0005,CI_excl_0_tiny_guided_edge
+p,guided_minus_guided_fullpred,distinguish_gainM,0.2448,0.2276,0.2618,CI_excl_0_GT_Snormal_better
+p,guided_minus_guided_fullpred,distinguish_gainFull,0.0107,0.0045,0.0168,CI_excl_0_guided_better

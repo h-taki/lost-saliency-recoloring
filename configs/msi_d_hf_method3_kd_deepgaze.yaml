@@ -1,0 +1,50 @@
+# H-7 (S4): Knowledge Distillation from DeepGaze IIE to MSINet
+#
+#   - data.teacher_saliency_dir: data/etocvd_d_teacher_deepgaze_iie
+#   - default_root_dir: runs/msi_d_hf_method3_kd_deepgaze
+#
+#
+#   1) pip install git+https://github.com/matthias-k/DeepGaze.git
+#      pip install git+https://github.com/openai/CLIP.git
+#      pip install einops
+#   2) Invoke-WebRequest https://github.com/matthias-k/DeepGaze/releases/download/v1.0.0/centerbias_mit1003.npy -OutFile weights/centerbias_mit1003.npy
+#   3) python scripts/generate_teacher_deepgaze.py
+#   4) python scripts/run_kfold.py --config configs/msi_d_hf_method3_kd_deepgaze.yaml --num-folds 20
+
+seed_everything: 42
+
+trainer:
+  max_epochs: 10
+  accelerator: gpu
+  devices: 1
+  precision: 32
+  log_every_n_steps: 10
+  default_root_dir: runs/msi_d_hf_method3_kd_deepgaze
+  deterministic: false
+
+model:
+  class_path: sm_cvd.lightning_modules.MSINetLightning
+  init_args:
+    learning_rate: 1.0e-5
+    loss_variant: method3
+    pretrained_vgg16: false
+    pretrained_path: weights/msinet_salicon_pytorch.pth
+    kd_weight: 1.0                                # ← H-7 NEW
+
+data:
+  class_path: sm_cvd.data.EToCVDDataModule
+  init_args:
+    dataset_root: /PATH/TO/EToCVD/D
+    splits_folder: splits_30_original
+    fold: 1
+    image_size: [240, 320]
+    batch_size: 1
+    num_workers: 2
+    teacher_saliency_dir: data/etocvd_d_teacher_deepgaze_iie    # ← H-7 NEW
+    augment:
+      class_path: sm_cvd.data.AugmentConfig
+      init_args:
+        use_hf: true
+        use_rrc: false
+        use_re: false
+        prob_each: 0.5

@@ -1,0 +1,5 @@
+type,metric,guided(GT_Snormal),guided_fullpred(pred_Snormal),guided_minus_fullpred,ci_lo,ci_hi,sig
+d,naturalness_cost,0.640,0.597,0.043,0.014,0.071,CI_excl_0_fullpred_slightly_more_natural
+d,distinguish_gainM,1.589,0.301,1.288,1.172,1.405,CI_excl_0_GT_Snormal_far_better
+p,naturalness_cost,0.609,0.544,0.065,0.041,0.091,CI_excl_0_fullpred_slightly_more_natural
+p,distinguish_gainM,1.825,0.181,1.644,1.506,1.782,CI_excl_0_GT_Snormal_far_better

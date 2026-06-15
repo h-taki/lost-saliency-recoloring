@@ -1,0 +1,5 @@
+N_fixations,d_cc,p_cc,normal_cc,note
+25,0.5476,0.4510,0.4005,matched-subsample split-half CC (mimics few-observer agreement)
+50,0.7025,0.6129,0.5584,
+100,0.8210,0.7577,0.7099,
+200,0.9007,0.8601,0.8291,

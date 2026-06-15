@@ -1,0 +1,5 @@
+condition,resolution,level,winner_cc,baseline_cc,winner_minus_baseline_cc,ci_lo,ci_hi,sig,nss_winner_minus_baseline,note
+P,native_matched,image-level_5fold3seed,0.5856,0.5975,-0.0118,-0.0234,-0.0001,CI_excl_0(winner_worse),-0.1176,type-dependence vanishes at matched res
+D,native,image-level_5fold3seed,0.6266,0.6268,-0.0002,-0.0119,0.0114,ns,-0.1183,data-bound (main)
+P,384x288_old_confounded,image-level_5fold3seed,0.5973,0.5725,0.0249,0.0163,0.0340,CI_excl_0(winner_better),0.0389,REPLY26 (resolution-confounded)
+P,native_matched,fold1_poc,0.5896,0.5712,0.0184,,,,-0.0835,fold_1 PoC

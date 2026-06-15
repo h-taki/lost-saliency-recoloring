@@ -1,0 +1,7 @@
+type,comparison,metric,mean_diff,ci_lo,ci_hi,verdict
+d,guided_minus_guided_baseline,naturalness_cost,-0.0005,-0.0016,0.0006,ns_equivalent
+d,guided_minus_guided_baseline,distinguish_gainM,0.0152,0.0099,0.0208,CI_excl_0_adapted_marginal_edge
+d,guided_minus_guided_baseline,distinguish_gainFull,-0.0035,-0.0060,-0.0010,CI_excl_0_tiny
+p,guided_minus_guided_baseline,naturalness_cost,-0.0002,-0.0011,0.0006,ns_equivalent
+p,guided_minus_guided_baseline,distinguish_gainM,0.0330,0.0248,0.0413,CI_excl_0_adapted_marginal_edge
+p,guided_minus_guided_baseline,distinguish_gainFull,0.0016,-0.0010,0.0041,ns_equivalent

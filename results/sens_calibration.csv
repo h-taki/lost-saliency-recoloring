@@ -1,0 +1,4 @@
+dataset,proper_sigma_pct,inflation,ci_lo,ci_hi
+ETTO,2,0.3406,0.3168,0.3652
+ETTO,3,0.2156,0.198,0.2345
+ETTO,4,0.1197,0.1064,0.1338

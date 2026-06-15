@@ -1,0 +1,16 @@
+seed_everything: 42
+trainer: {max_epochs: 10, accelerator: gpu, devices: 1, precision: 32, log_every_n_steps: 10, default_root_dir: runs/temporal_baseline_p_early, deterministic: false}
+model:
+  class_path: sm_cvd.lightning_modules.MSINetLightning
+  init_args: {learning_rate: 1.0e-5, loss_variant: method3, pretrained_vgg16: false, pretrained_path: weights/msinet_salicon_pytorch.pth}
+data:
+  class_path: sm_cvd.data.EToCVDDataModule
+  init_args:
+    dataset_root: ./data/etocvd_p_early
+    splits_folder: splits_fold5
+    fold: 1
+    image_size: [240, 320]
+    batch_size: 1
+    num_workers: 0
+    preprocess_mode: msinet
+    augment: {class_path: sm_cvd.data.AugmentConfig, init_args: {use_hf: true, use_rrc: false, use_re: false, prob_each: 0.5}}

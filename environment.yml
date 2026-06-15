@@ -1,0 +1,27 @@
+name: sm-cvd
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch=2.3.*
+  - torchvision=0.18.*
+  - pytorch-cuda=12.1
+  - numpy
+  - pillow
+  - opencv
+  - pandas
+  - pyyaml
+  - tqdm
+  - pytest
+  - pip:
+      - lightning>=2.3,<2.5
+      - torchmetrics>=1.4
+      - jsonargparse[signatures]>=4.27
+      - rich
+      - tensorboard
+      - huggingface_hub
+      - tensorflow-cpu==2.15.*   # only for SALICON weight conversion (.pb GraphDef parsing)
+      - gdown                    # download Kroner's original SALICON .pb from Google Drive
