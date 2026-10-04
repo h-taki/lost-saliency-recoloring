@@ -49,6 +49,8 @@ which you must replace with your local path (or pass `--dataset-root`).
 | Calibration confound (Toronto/ETTO) | `eval_cross_dataset.py` | `sens_calibration.csv` |
 | Temporal window | `build_temporal_splits.py`, `predict_perimage_temporal.py` | `early_M_recoloring.csv` |
 | Scaling / sensitivity | `build_scaling_splits.py` | `scaling_predictor_{d,p}.csv`, `sens_{threshold,severity}_{d,p}.csv` |
+| Second color-difference formula (CIE76) and severity re-evaluation (Secs. 4.2, 5) | recomputed from the recolored images with the Machado matrices of `recolor_optimize.py` | `recheck_de76_table1.csv`, `recheck_severity_eval.csv` |
+| Independent region: top 5% of S_normal with R_M excluded, CIEDE2000 (Sec. 4.2) | same recomputation; explicit region definition | `recheck_snorm_top5_excl_RM.csv` (summary), `recheck_snorm_top5_excl_RM_perimage.csv` |
 
 Evaluation uses predictor-independent CIEDE2000 metrics; ground-truth saliency maps are
 built by smoothing the public fixations to one degree of visual angle.

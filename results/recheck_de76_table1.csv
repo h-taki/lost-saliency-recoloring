@@ -1,0 +1,11 @@
+type,method,n,nat_de76,gainM_de76
+d,proposed,100,0.7995,2.4721
+d,normal-saliency,100,1.1183,2.5439
+d,uniform,100,0.6216,0.218
+d,daltonize,100,4.7278,0.0636
+d,kuhn,100,5.1816,0.347
+p,proposed,100,2.2816,3.1636
+p,normal-saliency,100,2.6427,3.2631
+p,uniform,100,2.1555,0.5705
+p,daltonize,100,6.7534,0.4377
+p,kuhn,100,6.0148,0.6102
