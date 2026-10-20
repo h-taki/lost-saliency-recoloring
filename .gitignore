@@ -5,11 +5,13 @@ build/
 dist/
 .venv/
 .conda/
-# datasets and trained weights are not committed
-data/
-weights/
-runs/
-lightning_logs/
+# datasets and trained weights are not committed.
+# Leading slash matters: a bare "data/" also matches src/sm_cvd/data/,
+# which is source code and must be published.
+/data/
+/weights/
+/runs/
+/lightning_logs/
 *.ckpt
 *.pth
 .DS_Store
