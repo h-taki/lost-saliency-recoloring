@@ -16,6 +16,10 @@ dependencies:
   - pyyaml
   - tqdm
   - pytest
+  - scipy                      # temporal splits, split-half ceiling, real-fixation check
+  - matplotlib                 # Figs. 1-3 and the appendix figures
+  - scikit-image               # CIELAB / CIEDE2000 / SSIM in the recoloring evaluation
+  - statsmodels                # mixed-effects models behind the image-level statistics
   - pip:
       - lightning>=2.3,<2.5
       - torchmetrics>=1.4
@@ -23,5 +27,7 @@ dependencies:
       - rich
       - tensorboard
       - huggingface_hub
+      - daltonlens               # Machado / Vienot CVD simulation used by the recoloring
+      - pysaliency               # Toronto and ETTO loaders for the calibration experiment
       - tensorflow-cpu==2.15.*   # only for SALICON weight conversion (.pb GraphDef parsing)
       - gdown                    # download Kroner's original SALICON .pb from Google Drive

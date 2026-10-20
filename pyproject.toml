@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sm-cvd"
+version = "1.0.0"
+description = "Lost-saliency-guided targeted recoloring with a resolution-calibrated few-shot saliency evaluation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Hironori Takimoto" }]
+keywords = [
+    "image recoloring",
+    "daltonization",
+    "visual saliency",
+    "color vision deficiency",
+]
+
+# Runtime dependencies are declared in environment.yml rather than here: the build
+# needs a CUDA-matched PyTorch, which conda selects and pip cannot. Install with
+#   conda env create -f environment.yml && conda activate sm-cvd && pip install -e .
+# so that `pip install -e .` only puts sm_cvd on the path and leaves the solved
+# conda environment alone.
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/h-taki/lost-saliency-recoloring"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

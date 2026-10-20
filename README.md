@@ -3,7 +3,8 @@
 Code and result tables for the paper:
 
 > H. Takimoto, "Lost-saliency-guided targeted recoloring with a resolution-calibrated
-> few-shot saliency evaluation," *Journal of Electronic Imaging* (under review).
+> few-shot saliency evaluation," *Journal of Electronic Imaging* (accepted 29 Sep. 2026;
+> volume, pages and DOI to follow).
 
 Targeted recoloring for color vision deficiency (CVD): a learned *lost-saliency map*
 `M = relu(S_normal − S_cvd)` marks the regions that are salient in normal vision but
